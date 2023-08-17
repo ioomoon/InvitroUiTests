@@ -29,11 +29,7 @@ public class BaseTest {
         if (!driver.getTitle().equals(baseTitle)) {
             driver.get(baseURL);
         }
-    }
 
-    @BeforeEach
-    void afterEach() {
-        AllureAttachment.takeScreenshot();
     }
 
     @AfterAll

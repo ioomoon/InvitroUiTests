@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.io.ByteArrayInputStream;
 
+
 public class AllureAttachment extends BaseTest {
 
     @Attachment

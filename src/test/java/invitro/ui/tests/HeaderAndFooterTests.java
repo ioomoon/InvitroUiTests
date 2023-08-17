@@ -3,6 +3,7 @@ package invitro.ui.tests;
 import invitro.ui.tags.Bug;
 import invitro.ui.testData.FooterData;
 import invitro.ui.testData.HeaderData;
+import invitro.ui.tests.helpers.AllureAttachment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +17,7 @@ public class HeaderAndFooterTests extends BaseTest {
     @Test
     public void logoDisplayTest(){
         step("Проверить отображение логотипа компании", () -> {
+            AllureAttachment.takeScreenshot();
             mainPage.checkLogo();
         });
     }
@@ -24,6 +26,7 @@ public class HeaderAndFooterTests extends BaseTest {
     @Test
     void cityNameMoscowTest(){
         step("Проверить, что город был корректно выбран автоматически", () -> {
+            AllureAttachment.takeScreenshot();
             mainPage.checkCityName(HeaderData.cityMoscow);
         });
     }
@@ -33,6 +36,7 @@ public class HeaderAndFooterTests extends BaseTest {
     @Test
     void phoneNumberTest(){
         step("Проверить, что номер телефона для связи отображается корректно", () -> {
+            AllureAttachment.takeScreenshot();
             mainPage.checkPhoneNumber(HeaderData.phoneNumber);
         });
     }
@@ -41,6 +45,7 @@ public class HeaderAndFooterTests extends BaseTest {
     @Test
     void freePhoneNumberTest(){
         step("Проверить, что бесплатный номер телефона для связи отображается корректно", () -> {
+            AllureAttachment.takeScreenshot();
             mainPage.checkFreePhoneNumber(HeaderData.freePhoneNumber);
         });
     }
@@ -52,11 +57,13 @@ public class HeaderAndFooterTests extends BaseTest {
     void searchTest(String searchText) throws InterruptedException {
         step("Ввести текст для поиска в поле поиска", () -> {
             mainPage.input(searchText);
+            AllureAttachment.takeScreenshot();
         });
         step("Нажать кнопку поиска", () -> {
             mainPage.clickSearch();
         });
         step("Проверить, что вспомогательные кнопки поиска отображаются", () -> {
+            AllureAttachment.takeScreenshot();
             searchPage.checkSearchResults();
         });
         step("Проверить, что отображаются результаты поиска", () -> {
@@ -64,19 +71,21 @@ public class HeaderAndFooterTests extends BaseTest {
         });
     }
 
-    @DisplayName("Проверка отображения елементов главного меню хедера")
+    @DisplayName("Проверка отображения элементов главного меню хедера")
     @Test
     void headerMainMenuElementsTest(){
         step("Проверить, что все элементы меню отображаются", () -> {
+            AllureAttachment.takeScreenshot();
             mainPage.checkHeaderMainMenuElements(HeaderData.expectedHeaderMainMenuElements);
         });
     }
 
-    @DisplayName("Проверка отображения елементов главного меню футера")
+    @DisplayName("Проверка отображения элементов главного меню футера")
     @Test
     void footerMainMenuTest(){
         step("Проскролить страницу вниз до футера", () -> {
-                    mainPage.scrollToFooter();
+            mainPage.scrollToFooter();
+            AllureAttachment.takeScreenshot();
         });
         step("Проверить, что все элементы меню отображаются", () -> {
             mainPage.checkFooterMainMenuElements(FooterData.expectedFooterMainMenuElements);
