@@ -17,4 +17,4 @@ Ui:
 - Пример прикрепленного скриншота
 ![](readme/Screenshot_1.png "allure")
 - Пример вывода ошибки при падении теста
-![](readme/Screenshot_2.png "allure")
+![](readme/Screenshot_2.png "allure2")
