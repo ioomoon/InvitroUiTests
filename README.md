@@ -15,6 +15,6 @@ Ui:
 
 ## <img src="https://github.com/ioomoon/QA-guru-graduation/blob/master/img/icon6.png?raw=true" width="25"> Отчеты в Allure Report
 - Пример прикрепленного скриншота
-![](readme/screenshot_1.png "allure")
+![](readme/Screenshot_1.png "allure")
 - Пример вывода ошибки при падении теста
-![](readme/screenshot_2.png "allure")
+![](readme/Screenshot_2.png "allure")
