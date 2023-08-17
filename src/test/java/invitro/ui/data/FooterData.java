@@ -1,4 +1,4 @@
-package invitro.ui.testData;
+package invitro.ui.data;
 
 import java.util.Arrays;
 import java.util.List;

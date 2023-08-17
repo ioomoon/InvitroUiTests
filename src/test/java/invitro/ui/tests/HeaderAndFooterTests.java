@@ -1,8 +1,8 @@
 package invitro.ui.tests;
 
 import invitro.ui.tags.Bug;
-import invitro.ui.testData.FooterData;
-import invitro.ui.testData.HeaderData;
+import invitro.ui.data.FooterData;
+import invitro.ui.data.HeaderData;
 import invitro.ui.tests.helpers.AllureAttachment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
