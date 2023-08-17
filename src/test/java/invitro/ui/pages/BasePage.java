@@ -1,10 +1,8 @@
 package invitro.ui.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -43,13 +41,13 @@ public class BasePage {
     /*
     Определение локатора элемента номера справочно-информационной службы
     */
-    @FindBy(xpath = "//*[@id=\"headerPhoneMobile\"]/div/a")
+    @FindBy(xpath = "//*[@id=\"headerPhone\"]/div/a")
     private WebElement phoneNumber;
 
     /*
-    Определение локатора элемента номера справочно-информационной службы
+    Определение локатора элемента бесплатного номера справочно-информационной службы
     */
-    @FindBy(xpath = "//*[@id=\"headerPhoneMobile\"]/div[2]/span/a")
+    @FindBy(xpath = "//*[@id=\"headerPhone\"]/div[2]/span/a")
     private WebElement freePhoneNumber;
 
     /*

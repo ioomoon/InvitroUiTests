@@ -7,15 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-
-import java.sql.Array;
-import java.util.Arrays;
-import java.util.List;
-
 import static io.qameta.allure.Allure.step;
 
-@DisplayName("Тестирование хедера")
-public class HeaderTests extends BaseTest {
+public class HeaderAndFooterTests extends BaseTest {
 
     @DisplayName("Проверка отображения логотипа компании на странице")
     @Test
@@ -80,28 +74,21 @@ public class HeaderTests extends BaseTest {
     @DisplayName("Проверка отображения елементов главного меню хедера")
     @Test
     void headerMainMenuElementsTest(){
-        step("Проверить, что все элементы меню отображаются на странице", () -> {
+        step("Проверить, что все элементы меню отображаются", () -> {
             mainPage.checkHeaderMainMenuElements(expectedHeaderMainMenuElements);
             AllureSteps.takeScreenshot();
         });
     }
 
+    @DisplayName("Проверка отображения елементов главного меню футера")
     @Test
-    void footerTest() throws InterruptedException {
-        mainPage.scrollToFooter();
-        mainPage.checkFooterMainMenuElements(expectedHeaderMainMenuElements);
+    void footerMainMenuTest(){
+        step("Проскролить страницу вниз до футера", () -> {
+                    mainPage.scrollToFooter();
+        });
+        step("Проверить, что все элементы меню отображаются", () -> {
+            mainPage.checkFooterMainMenuElements(expectedFooterMainMenuElements);
+            AllureSteps.takeScreenshot();
+        });
     }
-
-
-
-
-    /*
-    Набор тестов:
-    1 Проверка отображения логотипа на странице
-    2 Проверка города
-    3 Проверка номеров телефонов
-    4 Проверка поиска
-    5 Проверка отображения элементов мидл-хеадера
-    6 Проверка элементов футер-меню
-     */
 }

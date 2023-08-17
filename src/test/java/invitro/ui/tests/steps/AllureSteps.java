@@ -10,6 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.ByteArrayInputStream;
 
 public class AllureSteps extends BaseTest {
+    @DisplayName("Добавить скриншот")
     @Step
     public static void takeScreenshot() {
         Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
