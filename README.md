@@ -14,7 +14,8 @@ Ui:
 - Проверка отображения элементов главного меню футера
 
 ## <img src="https://github.com/ioomoon/QA-guru-graduation/blob/master/img/icon6.png?raw=true" width="25"> Отчеты в Allure Report
-Пример прикрепленного скриншота:
+- Пример прикрепленного скриншота:
 ![](readme/Screenshot_1.png "allure")
-Пример вывода ошибки при падении теста:
+
+- Пример вывода ошибки при падении теста:
 ![](readme/Screenshot_2.png "allure2")
