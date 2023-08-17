@@ -1,7 +1,8 @@
 package invitro.ui.tests;
 
 import invitro.ui.tags.Bug;
-import invitro.ui.tests.steps.AllureSteps;
+import invitro.ui.testData.FooterData;
+import invitro.ui.testData.HeaderData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,35 +17,31 @@ public class HeaderAndFooterTests extends BaseTest {
     public void logoDisplayTest(){
         step("Проверить отображение логотипа компании", () -> {
             mainPage.checkLogo();
-            AllureSteps.takeScreenshot();
         });
     }
 
-    @DisplayName("Проверка автоматически выбранного города, должен быть:" + " '" + cityMoscow + "'")
+    @DisplayName("Проверка автоматически выбранного города, должен быть:" + " '" + HeaderData.cityMoscow + "'")
     @Test
     void cityNameMoscowTest(){
         step("Проверить, что город был корректно выбран автоматически", () -> {
-            mainPage.checkCityName(cityMoscow);
-            AllureSteps.takeScreenshot();
+            mainPage.checkCityName(HeaderData.cityMoscow);
         });
     }
 
-    @DisplayName("Проверка отображения корректного номера телефона, должен быть:" + " '" + phoneNumber + "'")
+    @DisplayName("Проверка отображения корректного номера телефона, должен быть:" + " '" + HeaderData.phoneNumber + "'")
     @Bug
     @Test
     void phoneNumberTest(){
         step("Проверить, что номер телефона для связи отображается корректно", () -> {
-            mainPage.checkPhoneNumber(phoneNumber);
-            AllureSteps.takeScreenshot();
+            mainPage.checkPhoneNumber(HeaderData.phoneNumber);
         });
     }
 
-    @DisplayName("Проверка отображения корректного номера телефона для бесплатных звонков, должен быть:" + " '" + freePhoneNumber + "'")
+    @DisplayName("Проверка отображения корректного номера телефона для бесплатных звонков, должен быть:" + " '" + HeaderData.freePhoneNumber + "'")
     @Test
     void freePhoneNumberTest(){
         step("Проверить, что бесплатный номер телефона для связи отображается корректно", () -> {
-            mainPage.checkFreePhoneNumber(freePhoneNumber);
-            AllureSteps.takeScreenshot();
+            mainPage.checkFreePhoneNumber(HeaderData.freePhoneNumber);
         });
     }
 
@@ -55,19 +52,15 @@ public class HeaderAndFooterTests extends BaseTest {
     void searchTest(String searchText) throws InterruptedException {
         step("Ввести текст для поиска в поле поиска", () -> {
             mainPage.input(searchText);
-            AllureSteps.takeScreenshot();
         });
         step("Нажать кнопку поиска", () -> {
             mainPage.clickSearch();
-            AllureSteps.takeScreenshot();
         });
         step("Проверить, что вспомогательные кнопки поиска отображаются", () -> {
             searchPage.checkSearchResults();
-            AllureSteps.takeScreenshot();
         });
         step("Проверить, что отображаются результаты поиска", () -> {
             searchPage.checkSearchResults();
-            AllureSteps.takeScreenshot();
         });
     }
 
@@ -75,8 +68,7 @@ public class HeaderAndFooterTests extends BaseTest {
     @Test
     void headerMainMenuElementsTest(){
         step("Проверить, что все элементы меню отображаются", () -> {
-            mainPage.checkHeaderMainMenuElements(expectedHeaderMainMenuElements);
-            AllureSteps.takeScreenshot();
+            mainPage.checkHeaderMainMenuElements(HeaderData.expectedHeaderMainMenuElements);
         });
     }
 
@@ -87,8 +79,7 @@ public class HeaderAndFooterTests extends BaseTest {
                     mainPage.scrollToFooter();
         });
         step("Проверить, что все элементы меню отображаются", () -> {
-            mainPage.checkFooterMainMenuElements(expectedFooterMainMenuElements);
-            AllureSteps.takeScreenshot();
+            mainPage.checkFooterMainMenuElements(FooterData.expectedFooterMainMenuElements);
         });
     }
 }

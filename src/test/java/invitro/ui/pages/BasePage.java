@@ -13,109 +13,114 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 /*
-Включает header и footer
+Описывает header и footer сайта
  */
 public class BasePage {
     protected WebDriver driver;
 
-    /*
-    Конструктор класса, занимающийся инициализацией полей класса
+    /**
+     * Конструктор класса, занимающийся инициализацией полей класса
      */
     public BasePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    /*
-    Определение локатора логотипа
+    /**
+     * Определение локатора логотипа
      */
     @FindBy(xpath = "//*[@class=\"header-logo\"]")
     private WebElement invitroLogo;
 
-    /*
-    Определение локатора элемента с названием выбранного городом
+    /**
+     * Определение локатора элемента с названием выбранного городом
      */
     @FindBy(xpath = "//*[@id=\"city\"]/div/span")
     private WebElement cityName;
 
-    /*
-    Определение локатора элемента номера справочно-информационной службы
-    */
+    /**
+     * Определение локатора элемента номера справочно-информационной службы
+     */
     @FindBy(xpath = "//*[@id=\"headerPhone\"]/div/a")
     private WebElement phoneNumber;
 
-    /*
-    Определение локатора элемента бесплатного номера справочно-информационной службы
-    */
+    /**
+     * Определение локатора элемента бесплатного номера справочно-информационной службы
+     */
     @FindBy(xpath = "//*[@id=\"headerPhone\"]/div[2]/span/a")
     private WebElement freePhoneNumber;
 
-    /*
-    Определение локатора элемента поля ввода поиска
-    */
+    /**
+     * Определение локатора элемента поля ввода поиска
+     */
     @FindBy(xpath = "//*[@class=\"form-header-search\"]/input")
     private WebElement searchInput;
 
+    /**
+     * Определение локатора элемента кнопки поиска
+     */
     @FindBy(xpath = "//*[@class=\"form-header-search\"]/button")
     private WebElement searchButton;
 
-    @FindBy(xpath = "//*[@class=\"search-dropdown\"]")
-    private WebElement searchDropdown;
-
+    /**
+     * Определение локатора элемента нижнего меню
+     */
     @FindBy(xpath = "//*[@class=\"invitro_footer-menu\"]")
     private WebElement footerMenu;
 
+    /**
+     * Определение локатора элемента обертки футтера
+     */
     @FindBy(xpath = "//*[@class=\"invitro_footer-wrapper\"]")
     private WebElement footerWrapper;
-//    WebElement iframe = driver.findElement(By.xpath("//*[@class=\"invitro_footer-wrapper\"]"));
 
-
-    /*
-    Метод проверки отображения логотипа на странице
+    /**
+     * Проверка отображения логотипа на странице
      */
     public void checkLogo(){
         invitroLogo.isDisplayed();
     }
 
-    /*
-    Метод проверки соответствия отображаемого названия города с ожидаемым
+    /**
+     * Проверка соответствия отображаемого названия города с ожидаемым
      */
     public void checkCityName(String name){
         assertThat(cityName.getText()).isEqualTo(name);
     }
 
-    /*
-    Метод проверки соответствия отображаемого номера с ожидаемым
-    */
+    /**
+     * Проверка соответствия отображаемого номера телефона с ожидаемым
+     */
     public void checkPhoneNumber(String number){
         assertThat(phoneNumber.getText()).isEqualTo(number);
     }
 
-    /*
-    Метод проверки соответствия отображаемого номера с ожидаемым
-    */
+    /**
+     * * Проверка соответствия отображаемого бесплатного номера телефона с ожидаемым
+     */
     public void checkFreePhoneNumber(String number){
         assertThat(freePhoneNumber.getText()).isEqualTo(number);
     }
 
-    /*
-    Метод ввода
-    */
+    /**
+     * Ввод текста в строку поиска
+     * @param searchText Текст для ввода в поисковую строку
+     */
     public void input(String searchText){
         searchInput.sendKeys(searchText);
     }
 
-    /*
-    Метод нажатия на кнопку поиска
+    /**
+     * Нажатие на кнопку поиска
      */
     public void clickSearch(){
         searchButton.click();
     }
 
-    public void checkSearchDropdownIsVisible(){
-        assertThat(searchDropdown.getCssValue("visibility")).isEqualTo("visible");
-    }
-
+    /**
+     * Проверка отображения элементов главного верхнего меню
+     * @param expectedElements Список строк с ожидаемыми названиями элементов меню
+     */
     public void checkHeaderMainMenuElements(List<String> expectedElements){
         List<WebElement> headerMainMenuElements = driver.findElements(By.xpath(".//nav[@id='headerMainMenu']/ul/li[contains(@style,'block')]/a"));
         List<String> headerMainMenuElementsAsString = new ArrayList<>();
@@ -126,6 +131,10 @@ public class BasePage {
         assertThat(headerMainMenuElementsAsString).isEqualTo(expectedElements);
     }
 
+    /**
+     * Скрол до элемента на странице
+     * @param element Элемент, до которого будет произведен скрол
+     */
     protected void scrollTo(WebElement element){
         new Actions(driver)
                 .scrollToElement(element)
@@ -133,10 +142,17 @@ public class BasePage {
 
     }
 
+    /**
+     * Скрола до футтера сайта
+     */
     public void scrollToFooter(){
         scrollTo(footerWrapper);
     }
 
+    /**
+     * Проверка отображения элементов главного нижнего меню
+     * @param expectedElements Список строк с ожидаемыми названиями элементов меню
+     */
     public void checkFooterMainMenuElements(List<String> expectedElements){
         List<WebElement> footerMainMenuElements = driver.findElements(By.xpath(".//*[@id=\"footerMenu\"]/div/div/a"));
         List<String> footerMainMenuElementsAsString = new ArrayList<>();

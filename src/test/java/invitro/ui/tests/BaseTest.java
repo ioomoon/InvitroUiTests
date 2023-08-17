@@ -2,13 +2,11 @@ package invitro.ui.tests;
 
 import invitro.ui.pages.MainPage;
 import invitro.ui.pages.SearchPage;
+import invitro.ui.tests.helpers.AllureAttachment;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public class BaseTest {
@@ -19,34 +17,6 @@ public class BaseTest {
 
     public static MainPage mainPage = new MainPage(driver);
     public static SearchPage searchPage = new SearchPage(driver);
-
-    static final String cityMoscow = "Москва";
-    static final String phoneNumber = "8 (495) 363-0-364";
-    static final String freePhoneNumber = "8 (800) 200-363-0";
-
-    static final List<String> expectedHeaderMainMenuElements = Arrays.asList("Анализы",
-            "Запись к врачу",
-            "Врачи",
-            "Акции",
-            "Адреса",
-            "Медицинские услуги",
-            "Выезд на дом");
-    static final List<String> expectedFooterMainMenuElements = Arrays.asList("Медицинские услуги",
-            "Комплексные обследования",
-            "Запись к врачу",
-            "О врачах",
-            "Выезд на дом",
-            "Адреса медицинских офисов",
-            "Библиотека пациента",
-            "Вопрос врачу",
-            "Об ИНВИТРО",
-            "Партнеры",
-            "Вакансии",
-            "Клиники-партнеры",
-            "Юридическая информация",
-            "Программа лояльности",
-            "Клинические исследования",
-            "Результаты СОУТ");
 
     @BeforeAll
     static void beforeAll() {
@@ -59,6 +29,11 @@ public class BaseTest {
         if (!driver.getTitle().equals(baseTitle)) {
             driver.get(baseURL);
         }
+    }
+
+    @BeforeEach
+    void afterEach() {
+        AllureAttachment.takeScreenshot();
     }
 
     @AfterAll
