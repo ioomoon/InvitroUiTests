@@ -11,8 +11,30 @@ public class SearchPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@class=\"search__count-results\"]/span")
-    private WebElement searchCountResults;
+    /*
+    Определение локатора контейнера с вспомогательными кнопками поиска
+     */
+    @FindBy(xpath = "//*[@class=\"search__button-container\"]")
+    private WebElement searchButtonResults;
 
+    /*
+    Определение локатора контейнера с результатами поиска
+    */
+    @FindBy(xpath = "//*[@class=\"search__results\"]")
+    private WebElement searchResults;
+
+    /*
+    Метод проверки отображения контейнера с вспомогательными кнопками поиска
+     */
+    public void checkSearchButtonResults(){
+        searchButtonResults.isDisplayed();
+    }
+
+    /*
+    Метод проверки отображения контейнера с вспомогательными кнопками поиска
+    */
+    public void checkSearchResults(){
+        searchResults.isDisplayed();
+    }
 
 }

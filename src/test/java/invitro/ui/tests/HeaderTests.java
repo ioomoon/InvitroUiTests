@@ -8,6 +8,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.List;
+
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тестирование хедера")
@@ -59,16 +63,35 @@ public class HeaderTests extends BaseTest {
             mainPage.input(searchText);
             AllureSteps.takeScreenshot();
         });
-        step("Проверить, что при вводе текста в окно поиска появился dropdown с подсказками", () -> {
-            mainPage.checkSearchDropdownIsVisible();
-            AllureSteps.takeScreenshot();
-        });
         step("Нажать кнопку поиска", () -> {
             mainPage.clickSearch();
             AllureSteps.takeScreenshot();
         });
-        //TODO доделать поиск
+        step("Проверить, что вспомогательные кнопки поиска отображаются", () -> {
+            searchPage.checkSearchResults();
+            AllureSteps.takeScreenshot();
+        });
+        step("Проверить, что отображаются результаты поиска", () -> {
+            searchPage.checkSearchResults();
+            AllureSteps.takeScreenshot();
+        });
     }
+
+    @DisplayName("Проверка отображения елементов главного меню хедера")
+    @Test
+    void headerMainMenuElementsTest(){
+        step("Проверить, что все элементы меню отображаются на странице", () -> {
+            mainPage.checkHeaderMainMenuElements(expectedHeaderMainMenuElements);
+            AllureSteps.takeScreenshot();
+        });
+    }
+
+    @Test
+    void footerTest() throws InterruptedException {
+        mainPage.scrollToFooter();
+        mainPage.checkFooterMainMenuElements(expectedHeaderMainMenuElements);
+    }
+
 
 
 
