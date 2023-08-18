@@ -2,7 +2,6 @@ package invitro.ui.tests;
 
 import invitro.ui.pages.MainPage;
 import invitro.ui.pages.SearchPage;
-import invitro.ui.tests.helpers.AllureAttachment;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

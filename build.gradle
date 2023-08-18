@@ -28,7 +28,8 @@ dependencies {
             "org.seleniumhq.selenium:selenium-java:4.11.0",
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "org.assertj:assertj-core:3.24.2",
-            "org.apache.commons:commons-io:1.3.2"
+            "org.apache.commons:commons-io:1.3.2",
+            "org.junit.platform:junit-platform-suite-engine:1.9.3"
     )
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:2.0.5",
